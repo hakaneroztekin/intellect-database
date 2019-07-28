@@ -1,0 +1,1051 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Developer Guide &mdash; ITUCSDB1809  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Parts Implemented by Member Name" href="member1.html" />
+    <link rel="prev" title="User Guide" href="../user/index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> ITUCSDB1809
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../user/index.html">User Guide</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Developer Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#database-design">Database Design</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#code">Code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#python-sql">Python &amp; SQL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#html-css">HTML/CSS</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="member1.html">Parts Implemented by Member Name</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">ITUCSDB1809</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Developer Guide</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/developer/index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="developer-guide">
+<h1>Developer Guide<a class="headerlink" href="#developer-guide" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="database-design">
+<h2>Database Design<a class="headerlink" href="#database-design" title="Permalink to this headline">¶</a></h2>
+<p>There are three main tables; <strong>USERS, MOVIE</strong> and <strong>MUSIC</strong>.
+USERS table is designed to keep the information for user. MOVIE table is for movies, and MUSIC table is for musics.
+There are also two additional tables; <strong>MOVIE_LIST</strong> and <strong>MUSIC_LIST</strong>. These are designed to keep user’s favorited musics/movies.
+These keep ID’s for USER and MOVIE/MUSIC.</p>
+<div class="figure align-default">
+<a class="reference internal image-reference" href="../_images/ERdiagram.png"><img alt="ER Diagram ER Diagram for Intellect Database Design" src="../_images/ERdiagram.png" style="width: 754.0px; height: 438.0px;" /></a>
+</div>
+</div>
+<div class="section" id="code">
+<h2>Code<a class="headerlink" href="#code" title="Permalink to this headline">¶</a></h2>
+<p>The code can be explained in three parts.</p>
+<ul class="simple">
+<li><p>Python &amp; SQL</p></li>
+<li><p>HTML/CSS</p></li>
+</ul>
+</div>
+<div class="section" id="python-sql">
+<h2>Python &amp; SQL<a class="headerlink" href="#python-sql" title="Permalink to this headline">¶</a></h2>
+<p>There are the following python(.py) files;</p>
+<ul class="simple">
+<li><p>server.py</p></li>
+<li><p>models.py</p></li>
+<li><p>dbinit.py</p></li>
+<li><p>forms.py</p></li>
+<li><p>db_table_operations.py</p></li>
+<li><p>config.py</p></li>
+</ul>
+<p><strong>server.py</strong></p>
+<p>This is the main python file for the project. It renders pages,
+initializes and transfers variables and realizes methods with necessary HTML requests.</p>
+<p>Firstly, the following packages are imported.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">Flask</span><span class="p">,</span> <span class="n">render_template</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="n">redirect</span>
+<span class="kn">from</span> <span class="nn">flask_bootstrap</span> <span class="kn">import</span> <span class="n">Bootstrap</span>
+<span class="kn">from</span> <span class="nn">flask_login</span> <span class="kn">import</span> <span class="n">login_user</span><span class="p">,</span> <span class="n">LoginManager</span>
+
+<span class="kn">from</span> <span class="nn">forms</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">config</span> <span class="kn">import</span> <span class="n">Config</span>
+<span class="kn">from</span> <span class="nn">db_table_operations</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">werkzeug.security</span> <span class="kn">import</span> <span class="n">generate_password_hash</span>
+</pre></div>
+</div>
+<p>Then configuration, bootstrap and LoginManager is initialized. LoginManager is used for authentication.</p>
+<blockquote>
+<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">app</span> <span class="o">=</span> <span class="n">Flask</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+<span class="n">app</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">from_object</span><span class="p">(</span><span class="n">Config</span><span class="p">)</span>
+<span class="n">Bootstrap</span><span class="p">(</span><span class="n">app</span><span class="p">)</span>
+
+<span class="n">login</span> <span class="o">=</span> <span class="n">LoginManager</span><span class="p">(</span><span class="n">app</span><span class="p">)</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>The rest of the server.py works for routes.
+For example, this renders homepage.html when main route (“/”) is accessed.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nd">@app.route</span><span class="p">(</span><span class="s2">&quot;/&quot;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">home_page</span><span class="p">():</span>
+    <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s2">&quot;homepage.html&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>For the sign-up operation, route and necessary HTML requests are announced. Then a form is created
+(forms will be discussed in the forms.py). When user clicks to the “Register” button, then a new
+user object is created with information provided by the user.
+Then the user object is sent to insert_user which will work to insert user to the USERS table.
+With a successful sign-up operation, users are redirected to the signin page.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nd">@app.route</span><span class="p">(</span><span class="s1">&#39;/signup&#39;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;GET&#39;</span><span class="p">,</span> <span class="s1">&#39;POST&#39;</span><span class="p">])</span>
+<span class="k">def</span> <span class="nf">signup_page</span><span class="p">():</span>
+    <span class="n">form</span> <span class="o">=</span> <span class="n">RegistrationForm</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">method</span> <span class="o">==</span> <span class="s1">&#39;POST&#39;</span> <span class="ow">and</span> <span class="n">form</span><span class="o">.</span><span class="n">validate</span><span class="p">():</span>
+        <span class="n">user</span> <span class="o">=</span> <span class="n">User</span><span class="p">(</span><span class="n">form</span><span class="o">.</span><span class="n">username</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">form</span><span class="o">.</span><span class="n">name</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">form</span><span class="o">.</span><span class="n">surname</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">form</span><span class="o">.</span><span class="n">email</span><span class="o">.</span><span class="n">data</span><span class="p">,</span>
+                    <span class="n">form</span><span class="o">.</span><span class="n">password</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">form</span><span class="o">.</span><span class="n">age</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">form</span><span class="o">.</span><span class="n">gender</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
+        <span class="n">insert_user</span><span class="p">(</span><span class="n">user</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="s1">&#39;/signin&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The similar operations are realized for sign in; route, HTML requests and form.
+When user clicks “Sign in” button, find_user_by_username method runs a SQL query
+to find the username in the database. If it can, Flask Login app is informed about the
+signed up user. The username is also shown in the menu bar at Mylists page.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nd">@app.route</span><span class="p">(</span><span class="s1">&#39;/signin&#39;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;GET&#39;</span><span class="p">,</span> <span class="s1">&#39;POST&#39;</span><span class="p">])</span>
+<span class="k">def</span> <span class="nf">signin_page</span><span class="p">():</span>
+    <span class="n">form</span> <span class="o">=</span> <span class="n">LoginForm</span><span class="p">()</span>
+    <span class="k">if</span> <span class="n">form</span><span class="o">.</span><span class="n">validate_on_submit</span><span class="p">():</span>
+        <span class="n">found_user</span> <span class="o">=</span> <span class="n">find_user_by_username</span><span class="p">(</span><span class="n">form</span><span class="o">.</span><span class="n">username</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
+        <span class="n">user</span> <span class="o">=</span> <span class="n">User</span><span class="p">(</span><span class="n">found_user</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">found_user</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">found_user</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">found_user</span><span class="p">[</span><span class="mi">4</span><span class="p">],</span>
+                    <span class="n">found_user</span><span class="p">[</span><span class="mi">5</span><span class="p">],</span> <span class="n">found_user</span><span class="p">[</span><span class="mi">6</span><span class="p">],</span> <span class="n">found_user</span><span class="p">[</span><span class="mi">7</span><span class="p">])</span>
+        <span class="n">user</span><span class="o">.</span><span class="n">set_id</span><span class="p">(</span><span class="n">found_user</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="c1"># to load user id</span>
+        <span class="k">if</span> <span class="n">user</span> <span class="ow">is</span> <span class="bp">None</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">check_password</span><span class="p">(</span><span class="n">user</span><span class="o">.</span><span class="n">password</span><span class="p">,</span> <span class="n">form</span><span class="o">.</span><span class="n">password</span><span class="o">.</span><span class="n">data</span><span class="p">):</span>
+            <span class="k">print</span><span class="p">(</span><span class="s2">&quot;User signing failed&quot;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="s1">&#39;/signin&#39;</span><span class="p">)</span>
+        <span class="n">login_user</span><span class="p">(</span><span class="n">user</span><span class="p">,</span> <span class="n">remember</span><span class="o">=</span><span class="n">form</span><span class="o">.</span><span class="n">remember_me</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="s2">&quot;User signed successfully&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="s1">&#39;/mylists&#39;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s2">&quot;signin.html&quot;</span><span class="p">,</span> <span class="n">form</span><span class="o">=</span><span class="n">form</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>From this point on, there are the following methods left in the server.py;</p>
+<ul class="simple">
+<li><p>mylists</p></li>
+<li><p>movies (add/update/delete)</p></li>
+<li><p>musics (add/update/delete)</p></li>
+</ul>
+<p>Operations for movies and musics are very similar.
+For the sake of simplicity, mylists and movies will be discussed.</p>
+<p>Mylists page tries to get elements from user’s own lists as a first step.
+If there is any element exists, it shows them.</p>
+<p>Also, mylists page has “Delete” button for items in the user’s list.
+When it is clicked, it takes the related elements id (music or movie)
+and user’s id. Then it sends it to delete_movie (delete_music for music) operation
+to run SQL query to delete it from the database.</p>
+<p>As it can be noticed, mylists page provides user_movies and user_musics variables
+while it is rendering the html file. These variables are going to be processed
+with the html file to fill the tables.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nd">@app.route</span><span class="p">(</span><span class="s1">&#39;/mylists&#39;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;GET&#39;</span><span class="p">,</span> <span class="s1">&#39;POST&#39;</span><span class="p">])</span>
+<span class="k">def</span> <span class="nf">mylists_page</span><span class="p">():</span>
+    <span class="n">user_movies</span> <span class="o">=</span> <span class="n">userlist_get_movies</span><span class="p">()</span>
+    <span class="n">user_musics</span> <span class="o">=</span> <span class="n">userlist_get_musics</span><span class="p">()</span>
+
+    <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">method</span> <span class="o">==</span> <span class="s1">&#39;POST&#39;</span><span class="p">:</span>
+        <span class="n">movie_id</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="p">[</span><span class="s1">&#39;movie_id&#39;</span><span class="p">]</span>
+        <span class="n">user_id</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="p">[</span><span class="s1">&#39;user_id&#39;</span><span class="p">]</span>
+        <span class="n">music_id</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="p">[</span><span class="s1">&#39;music_id&#39;</span><span class="p">]</span>
+
+        <span class="k">if</span> <span class="n">movie_id</span> <span class="o">!=</span> <span class="s2">&quot;0&quot;</span><span class="p">:</span>  <span class="c1"># request to delete movie</span>
+            <span class="n">userlist_delete_movie</span><span class="p">(</span><span class="n">user_id</span><span class="p">,</span> <span class="n">movie_id</span><span class="p">)</span>
+            <span class="k">print</span><span class="p">(</span><span class="s2">&quot;delete movie with id &quot;</span> <span class="o">+</span> <span class="n">movie_id</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="s1">&#39;/mylists&#39;</span><span class="p">)</span>
+
+        <span class="k">elif</span> <span class="n">music_id</span> <span class="o">!=</span> <span class="s2">&quot;0&quot;</span><span class="p">:</span>  <span class="c1"># request to delete music</span>
+            <span class="n">userlist_delete_music</span><span class="p">(</span><span class="n">user_id</span><span class="p">,</span> <span class="n">music_id</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="s1">&#39;/mylists&#39;</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s2">&quot;mylists.html&quot;</span><span class="p">,</span>
+                           <span class="n">user_movies</span><span class="o">=</span><span class="n">user_movies</span><span class="p">,</span>
+                           <span class="n">user_musics</span><span class="o">=</span><span class="n">user_musics</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Movies page works similarly with the mylists page. It shows the movies in the MOVIE table in sorted order.
+It has “Add” button for user to add the selected movie to his/her lists.
+Added elements are going to be shown in users list in mylists page.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">movies_page</span><span class="p">():</span>
+    <span class="n">movies</span> <span class="o">=</span> <span class="n">get_movies</span><span class="p">()</span>
+
+    <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">method</span> <span class="o">==</span> <span class="s1">&#39;POST&#39;</span><span class="p">:</span>
+        <span class="n">movie_id</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="p">[</span><span class="s1">&#39;movie_id&#39;</span><span class="p">]</span>
+        <span class="n">user_id</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="p">[</span><span class="s1">&#39;user_id&#39;</span><span class="p">]</span>
+        <span class="n">userlist_add_movie</span><span class="p">(</span><span class="n">user_id</span><span class="p">,</span> <span class="n">movie_id</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="s1">&#39;/mylists&#39;</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s2">&quot;movies.html&quot;</span><span class="p">,</span> <span class="n">movies</span><span class="o">=</span><span class="nb">sorted</span><span class="p">(</span><span class="n">movies</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>Adding a movie is fairly simple and similar to the user sign up operation.
+It works with MovieAddForm and creates a movie object with provided information.
+Then to run SQL query, it sends the movie object to insert_movie() method.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nd">@app.route</span><span class="p">(</span><span class="s1">&#39;/mylists/movies/add&#39;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;GET&#39;</span><span class="p">,</span> <span class="s1">&#39;POST&#39;</span><span class="p">])</span>
+<span class="k">def</span> <span class="nf">movies_add_page</span><span class="p">():</span>
+    <span class="n">form</span> <span class="o">=</span> <span class="n">MovieAddForm</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">method</span> <span class="o">==</span> <span class="s1">&#39;POST&#39;</span> <span class="ow">and</span> <span class="n">form</span><span class="o">.</span><span class="n">validate</span><span class="p">():</span>
+        <span class="n">movie</span> <span class="o">=</span> <span class="n">Movie</span><span class="p">(</span><span class="n">form</span><span class="o">.</span><span class="n">title</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">form</span><span class="o">.</span><span class="n">year</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">form</span><span class="o">.</span><span class="n">duration_in_minutes</span><span class="o">.</span><span class="n">data</span><span class="p">,</span>
+                      <span class="n">form</span><span class="o">.</span><span class="n">director</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">form</span><span class="o">.</span><span class="n">genre</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
+        <span class="n">insert_movie</span><span class="p">(</span><span class="n">movie</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="s1">&#39;/mylists/movies&#39;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s2">&quot;add_movies.html&quot;</span><span class="p">,</span> <span class="n">form</span><span class="o">=</span><span class="n">form</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Movie update page also gets id to be deleted.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">movies_update_page</span><span class="p">():</span>
+    <span class="n">form</span> <span class="o">=</span> <span class="n">MovieUpdateForm</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">method</span> <span class="o">==</span> <span class="s1">&#39;POST&#39;</span> <span class="ow">and</span> <span class="n">form</span><span class="o">.</span><span class="n">validate</span><span class="p">():</span>
+        <span class="n">movie</span> <span class="o">=</span> <span class="n">Movie</span><span class="p">(</span><span class="n">form</span><span class="o">.</span><span class="n">title</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">form</span><span class="o">.</span><span class="n">year</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">form</span><span class="o">.</span><span class="n">duration_in_minutes</span><span class="o">.</span><span class="n">data</span><span class="p">,</span>
+                      <span class="n">form</span><span class="o">.</span><span class="n">director</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">form</span><span class="o">.</span><span class="n">genre</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
+        <span class="n">movie_id</span> <span class="o">=</span> <span class="n">form</span><span class="o">.</span><span class="n">id</span><span class="o">.</span><span class="n">data</span>  <span class="c1"># which movie to update</span>
+        <span class="n">update_movie</span><span class="p">(</span><span class="n">movie_id</span><span class="p">,</span> <span class="n">movie</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="s1">&#39;/mylists/movies&#39;</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s2">&quot;update_movies.html&quot;</span><span class="p">,</span> <span class="n">form</span><span class="o">=</span><span class="n">form</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Movie delete page gets id that will be deleted from the database table, MOVIE.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">movies_delete_page</span><span class="p">():</span>
+    <span class="n">form</span> <span class="o">=</span> <span class="n">MovieDeleteForm</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="p">)</span>
+    <span class="nb">id</span> <span class="o">=</span> <span class="n">form</span><span class="o">.</span><span class="n">movie_id</span><span class="o">.</span><span class="n">data</span>
+    <span class="k">if</span> <span class="nb">id</span><span class="o">.</span><span class="fm">__len__</span><span class="p">()</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">delete_movie</span><span class="p">(</span><span class="nb">id</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="s1">&#39;/mylists/movies&#39;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s2">&quot;delete_movies.html&quot;</span><span class="p">,</span> <span class="n">form</span><span class="o">=</span><span class="n">form</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>models.py</strong>
+models.py includes User, Movie and Music classes.</p>
+<p>The most technical part is about the login. initialize_login method is
+implemented as a solution for circular import between server.py and models.py
+After the initialization of “login”, it is used to load users. This is related with Flask’s LoginManager package.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">initialize_login</span><span class="p">():</span>
+    <span class="kn">from</span> <span class="nn">server</span> <span class="kn">import</span> <span class="n">login</span>
+    <span class="k">global</span> <span class="n">login</span>
+    <span class="n">login</span> <span class="o">=</span> <span class="n">login</span>
+
+<span class="k">class</span> <span class="nc">User</span><span class="p">(</span><span class="n">UserMixin</span><span class="p">):</span>
+    <span class="n">initialize_login</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">username</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">surname</span><span class="p">,</span> <span class="n">email</span><span class="p">,</span> <span class="n">password</span><span class="p">,</span> <span class="n">age</span><span class="p">,</span> <span class="n">gender</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">id</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">username</span> <span class="o">=</span> <span class="n">username</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">surname</span> <span class="o">=</span> <span class="n">surname</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">email</span> <span class="o">=</span> <span class="n">email</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">password</span> <span class="o">=</span> <span class="n">password</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">age</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">age</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">gender</span> <span class="o">=</span> <span class="n">gender</span>
+        <span class="k">print</span><span class="p">(</span><span class="s2">&quot;User object created&quot;</span><span class="p">)</span>
+
+    <span class="nd">@login.user_loader</span>
+    <span class="k">def</span> <span class="nf">load_user</span><span class="p">(</span><span class="nb">id</span><span class="p">):</span>
+        <span class="k">if</span> <span class="nb">id</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">print</span><span class="p">(</span><span class="s2">&quot;User not logged in, id is &quot;</span><span class="p">,</span> <span class="nb">id</span><span class="p">)</span>
+            <span class="k">return</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">found_user</span> <span class="o">=</span> <span class="n">find_user_by_id</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="nb">id</span><span class="p">))</span>
+            <span class="k">return</span> <span class="n">found_user</span>
+
+    <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s1">&#39;&lt;User </span><span class="si">%r</span><span class="s1">&gt;&#39;</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">username</span>
+
+    <span class="k">def</span> <span class="nf">set_id</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">id</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">id</span> <span class="o">=</span> <span class="nb">id</span>
+
+    <span class="k">def</span> <span class="nf">get_id</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">id</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">Music</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">genre</span><span class="p">,</span> <span class="n">duration_in_seconds</span><span class="p">,</span> <span class="n">singer</span><span class="p">,</span> <span class="n">year</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="o">=</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">genre</span> <span class="o">=</span> <span class="n">genre</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">duration_in_seconds</span> <span class="o">=</span> <span class="n">duration_in_seconds</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">singer</span> <span class="o">=</span> <span class="n">singer</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">year</span> <span class="o">=</span> <span class="n">year</span>
+        <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Music object created&quot;</span><span class="p">)</span>
+
+
+<span class="k">class</span> <span class="nc">Movie</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">title</span><span class="p">,</span> <span class="n">year</span><span class="p">,</span> <span class="n">duration_in_minutes</span><span class="p">,</span> <span class="n">director</span><span class="p">,</span> <span class="n">genre</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">title</span> <span class="o">=</span> <span class="n">title</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">year</span> <span class="o">=</span> <span class="n">year</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">genre</span> <span class="o">=</span> <span class="n">genre</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">duration_in_minutes</span> <span class="o">=</span> <span class="n">duration_in_minutes</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">director</span> <span class="o">=</span> <span class="n">director</span>
+        <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Movie object created&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>dbinit.py</strong>
+dbinit.py is used for database initialization. It runs INIT_STATEMENTS which has
+the purpose to create the tables, USERS, MOVIE, MUSIC.</p>
+<div class="highlight-SQL notranslate"><div class="highlight"><pre><span></span><span class="n">INIT_STATEMENTS</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="ss">&quot;DROP TABLE IF EXISTS USERS CASCADE&quot;</span><span class="p">,</span> <span class="o">#</span> <span class="k">to</span> <span class="n">test</span> <span class="n">changes</span> <span class="n">quickly</span>
+    <span class="ss">&quot;DROP TABLE IF EXISTS MUSIC CASCADE&quot;</span><span class="p">,</span>
+    <span class="ss">&quot;DROP TABLE IF EXISTS MOVIE CASCADE&quot;</span><span class="p">,</span>
+    <span class="ss">&quot;DROP TABLE IF EXISTS MUSIC_LIST CASCADE&quot;</span><span class="p">,</span>
+    <span class="ss">&quot;DROP TABLE IF EXISTS MOVIE_LIST CASCADE&quot;</span><span class="p">,</span>
+
+    <span class="ss">&quot;CREATE TABLE IF NOT EXISTS USERS(&quot;</span>
+        <span class="ss">&quot;ID SERIAL,&quot;</span>
+        <span class="ss">&quot;USERNAME VARCHAR(30) NOT NULL,&quot;</span>
+        <span class="ss">&quot;NAME VARCHAR(30),&quot;</span>
+        <span class="ss">&quot;SURNAME VARCHAR(30),&quot;</span>
+        <span class="ss">&quot;EMAIL VARCHAR(30),&quot;</span>
+        <span class="ss">&quot;PASSWORD VARCHAR(100),&quot;</span>
+        <span class="ss">&quot;AGE VARCHAR(8),&quot;</span>
+        <span class="ss">&quot;GENDER VARCHAR(15),&quot;</span>
+        <span class="ss">&quot;PRIMARY KEY(ID)&quot;</span>
+    <span class="ss">&quot;)&quot;</span><span class="p">,</span>
+
+    <span class="ss">&quot;CREATE TABLE IF NOT EXISTS MUSIC(&quot;</span>
+    <span class="ss">&quot;ID SERIAL,&quot;</span>
+    <span class="ss">&quot;NAME VARCHAR(30),&quot;</span>
+    <span class="ss">&quot;GENRE VARCHAR(30),&quot;</span>
+    <span class="ss">&quot;DURATION_IN_SECONDS VARCHAR(8),&quot;</span>
+    <span class="ss">&quot;SINGER VARCHAR(30),&quot;</span>
+    <span class="ss">&quot;YEAR VARCHAR(8),&quot;</span>
+    <span class="ss">&quot;PRIMARY KEY(ID)&quot;</span>
+    <span class="ss">&quot;)&quot;</span><span class="p">,</span>
+
+    <span class="ss">&quot;CREATE TABLE IF NOT EXISTS MOVIE(&quot;</span>
+    <span class="ss">&quot;ID SERIAL,&quot;</span>
+    <span class="ss">&quot;TITLE VARCHAR(40),&quot;</span>
+    <span class="ss">&quot;YEAR VARCHAR(8),&quot;</span>
+    <span class="ss">&quot;DURATION_IN_MINUTES VARCHAR(8),&quot;</span>
+    <span class="ss">&quot;DIRECTOR VARCHAR(30),&quot;</span>
+    <span class="ss">&quot;GENRE VARCHAR(30),&quot;</span>
+    <span class="ss">&quot;PRIMARY KEY(ID)&quot;</span>
+    <span class="ss">&quot;)&quot;</span><span class="p">,</span>
+</pre></div>
+</div>
+<p>Notice that USER_ID and MUSIC_ID/MOVIE_ID are the primary keys for these tables.
+Also, they got cascading.</p>
+<div class="highlight-SQL notranslate"><div class="highlight"><pre><span></span>    <span class="ss">&quot;CREATE TABLE IF NOT EXISTS MUSIC_LIST(&quot;</span>
+    <span class="ss">&quot;USER_ID INTEGER REFERENCES USERS(id) ON DELETE CASCADE,&quot;</span>
+    <span class="ss">&quot;MUSIC_ID INTEGER REFERENCES MUSIC(id) ON DELETE CASCADE,&quot;</span>
+    <span class="ss">&quot;PRIMARY KEY(USER_ID, MUSIC_ID)&quot;</span>
+    <span class="ss">&quot;)&quot;</span><span class="p">,</span>
+
+    <span class="ss">&quot;CREATE TABLE IF NOT EXISTS MOVIE_LIST(&quot;</span>
+    <span class="ss">&quot;USER_ID INTEGER REFERENCES USERS(id) ON DELETE CASCADE,&quot;</span>
+    <span class="ss">&quot;MOVIE_ID INTEGER REFERENCES MOVIE(id) ON DELETE CASCADE,&quot;</span>
+    <span class="ss">&quot;PRIMARY KEY(USER_ID, MOVIE_ID)&quot;</span>
+    <span class="ss">&quot;)&quot;</span><span class="p">,</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+<p><strong>forms.py</strong>
+forms.py is used to create forms necessary for the related operations.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">LoginForm</span><span class="p">(</span><span class="n">FlaskForm</span><span class="p">):</span>
+    <span class="n">username</span> <span class="o">=</span> <span class="n">StringField</span><span class="p">(</span><span class="s1">&#39;Username&#39;</span><span class="p">,</span> <span class="n">validators</span><span class="o">=</span><span class="p">[</span><span class="n">DataRequired</span><span class="p">()])</span>
+    <span class="n">password</span> <span class="o">=</span> <span class="n">PasswordField</span><span class="p">(</span><span class="s1">&#39;Password&#39;</span><span class="p">,</span> <span class="n">validators</span><span class="o">=</span><span class="p">[</span><span class="n">DataRequired</span><span class="p">()])</span>
+    <span class="n">remember_me</span> <span class="o">=</span> <span class="n">BooleanField</span><span class="p">(</span><span class="s1">&#39;Remember Me&#39;</span><span class="p">)</span>
+    <span class="n">submit</span> <span class="o">=</span> <span class="n">SubmitField</span><span class="p">(</span><span class="s1">&#39;Sign In&#39;</span><span class="p">)</span>
+
+
+<span class="k">class</span> <span class="nc">RegistrationForm</span><span class="p">(</span><span class="n">Form</span><span class="p">):</span>
+    <span class="n">username</span> <span class="o">=</span> <span class="n">StringField</span><span class="p">(</span><span class="s1">&#39;Username&#39;</span><span class="p">,</span> <span class="p">[</span><span class="n">validators</span><span class="o">.</span><span class="n">Length</span><span class="p">(</span><span class="nb">min</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="mi">30</span><span class="p">)])</span>
+    <span class="n">email</span> <span class="o">=</span> <span class="n">StringField</span><span class="p">(</span><span class="s1">&#39;Email Address&#39;</span><span class="p">,</span> <span class="p">[</span><span class="n">validators</span><span class="o">.</span><span class="n">Length</span><span class="p">(</span><span class="nb">min</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="mi">30</span><span class="p">)])</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="n">StringField</span><span class="p">(</span><span class="s1">&#39;Name&#39;</span><span class="p">,</span> <span class="p">[</span><span class="n">validators</span><span class="o">.</span><span class="n">Length</span><span class="p">(</span><span class="nb">min</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="mi">20</span><span class="p">)])</span>
+    <span class="n">surname</span> <span class="o">=</span> <span class="n">StringField</span><span class="p">(</span><span class="s1">&#39;Surname&#39;</span><span class="p">,</span> <span class="p">[</span><span class="n">validators</span><span class="o">.</span><span class="n">Length</span><span class="p">(</span><span class="nb">min</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="mi">20</span><span class="p">)])</span>
+    <span class="n">age</span> <span class="o">=</span> <span class="n">StringField</span><span class="p">(</span><span class="s1">&#39;Age&#39;</span><span class="p">,</span> <span class="p">[</span><span class="n">validators</span><span class="o">.</span><span class="n">Length</span><span class="p">(</span><span class="nb">min</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="mi">20</span><span class="p">)])</span>
+    <span class="n">gender</span> <span class="o">=</span> <span class="n">StringField</span><span class="p">(</span><span class="s1">&#39;Gender&#39;</span><span class="p">,</span> <span class="p">[</span><span class="n">validators</span><span class="o">.</span><span class="n">Length</span><span class="p">(</span><span class="nb">min</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="mi">15</span><span class="p">)])</span>
+    <span class="n">password</span> <span class="o">=</span> <span class="n">PasswordField</span><span class="p">(</span><span class="s1">&#39;New Password&#39;</span><span class="p">,</span> <span class="p">[</span>
+        <span class="n">validators</span><span class="o">.</span><span class="n">DataRequired</span><span class="p">(),</span>
+        <span class="n">validators</span><span class="o">.</span><span class="n">EqualTo</span><span class="p">(</span><span class="s1">&#39;confirm&#39;</span><span class="p">,</span> <span class="n">message</span><span class="o">=</span><span class="s1">&#39;Passwords must match&#39;</span><span class="p">)</span>
+    <span class="p">])</span>
+    <span class="n">confirm</span> <span class="o">=</span> <span class="n">PasswordField</span><span class="p">(</span><span class="s1">&#39;Repeat Password&#39;</span><span class="p">)</span>
+
+<span class="c1"># MOVIE OPERATIONS</span>
+<span class="k">class</span> <span class="nc">MovieAddForm</span><span class="p">(</span><span class="n">Form</span><span class="p">):</span>
+    <span class="n">title</span> <span class="o">=</span> <span class="n">StringField</span><span class="p">(</span><span class="s1">&#39;Title&#39;</span><span class="p">,</span> <span class="p">[</span><span class="n">validators</span><span class="o">.</span><span class="n">Length</span><span class="p">(</span><span class="nb">min</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="mi">30</span><span class="p">)])</span>
+    <span class="n">year</span> <span class="o">=</span> <span class="n">StringField</span><span class="p">(</span><span class="s1">&#39;Year&#39;</span><span class="p">,</span> <span class="p">[</span><span class="n">validators</span><span class="o">.</span><span class="n">Length</span><span class="p">(</span><span class="nb">min</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="mi">30</span><span class="p">)])</span>
+    <span class="n">duration_in_minutes</span> <span class="o">=</span> <span class="n">StringField</span><span class="p">(</span><span class="s1">&#39;Duration&#39;</span><span class="p">,</span> <span class="p">[</span><span class="n">validators</span><span class="o">.</span><span class="n">Length</span><span class="p">(</span><span class="nb">min</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="mi">20</span><span class="p">)])</span>
+    <span class="n">director</span> <span class="o">=</span> <span class="n">StringField</span><span class="p">(</span><span class="s1">&#39;Director&#39;</span><span class="p">,</span> <span class="p">[</span><span class="n">validators</span><span class="o">.</span><span class="n">Length</span><span class="p">(</span><span class="nb">min</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="mi">20</span><span class="p">)])</span>
+    <span class="n">genre</span> <span class="o">=</span> <span class="n">StringField</span><span class="p">(</span><span class="s1">&#39;Genre&#39;</span><span class="p">,</span> <span class="p">[</span><span class="n">validators</span><span class="o">.</span><span class="n">Length</span><span class="p">(</span><span class="nb">min</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="mi">20</span><span class="p">)])</span>
+
+<span class="k">class</span> <span class="nc">MovieUpdateForm</span><span class="p">(</span><span class="n">Form</span><span class="p">):</span>
+    <span class="nb">id</span> <span class="o">=</span> <span class="n">StringField</span><span class="p">(</span><span class="s1">&#39;Id of The Movie&#39;</span><span class="p">,</span> <span class="p">[</span><span class="n">validators</span><span class="o">.</span><span class="n">Length</span><span class="p">(</span><span class="nb">min</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="mi">30</span><span class="p">)])</span>
+    <span class="n">title</span> <span class="o">=</span> <span class="n">StringField</span><span class="p">(</span><span class="s1">&#39;Title&#39;</span><span class="p">,</span> <span class="p">[</span><span class="n">validators</span><span class="o">.</span><span class="n">Length</span><span class="p">(</span><span class="nb">min</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="mi">30</span><span class="p">)])</span>
+    <span class="n">year</span> <span class="o">=</span> <span class="n">StringField</span><span class="p">(</span><span class="s1">&#39;Year&#39;</span><span class="p">,</span> <span class="p">[</span><span class="n">validators</span><span class="o">.</span><span class="n">Length</span><span class="p">(</span><span class="nb">min</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="mi">30</span><span class="p">)])</span>
+    <span class="n">duration_in_minutes</span> <span class="o">=</span> <span class="n">StringField</span><span class="p">(</span><span class="s1">&#39;Duration&#39;</span><span class="p">,</span> <span class="p">[</span><span class="n">validators</span><span class="o">.</span><span class="n">Length</span><span class="p">(</span><span class="nb">min</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="mi">20</span><span class="p">)])</span>
+    <span class="n">director</span> <span class="o">=</span> <span class="n">StringField</span><span class="p">(</span><span class="s1">&#39;Director&#39;</span><span class="p">,</span> <span class="p">[</span><span class="n">validators</span><span class="o">.</span><span class="n">Length</span><span class="p">(</span><span class="nb">min</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="mi">20</span><span class="p">)])</span>
+    <span class="n">genre</span> <span class="o">=</span> <span class="n">StringField</span><span class="p">(</span><span class="s1">&#39;Genre&#39;</span><span class="p">,</span> <span class="p">[</span><span class="n">validators</span><span class="o">.</span><span class="n">Length</span><span class="p">(</span><span class="nb">min</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="mi">20</span><span class="p">)])</span>
+
+<span class="k">class</span> <span class="nc">MovieDeleteForm</span><span class="p">(</span><span class="n">Form</span><span class="p">):</span>
+    <span class="n">movie_id</span> <span class="o">=</span> <span class="n">StringField</span><span class="p">(</span><span class="s1">&#39;Id&#39;</span><span class="p">,</span> <span class="p">[</span><span class="n">validators</span><span class="o">.</span><span class="n">Length</span><span class="p">(</span><span class="nb">min</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="mi">5</span><span class="p">)])</span>
+
+<span class="c1">#MUSIC OPERATIONS</span>
+<span class="k">class</span> <span class="nc">MusicAddForm</span><span class="p">(</span><span class="n">Form</span><span class="p">):</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="n">StringField</span><span class="p">(</span><span class="s1">&#39;Name&#39;</span><span class="p">,</span> <span class="p">[</span><span class="n">validators</span><span class="o">.</span><span class="n">Length</span><span class="p">(</span><span class="nb">min</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="mi">30</span><span class="p">)])</span>
+    <span class="n">genre</span> <span class="o">=</span> <span class="n">StringField</span><span class="p">(</span><span class="s1">&#39;Genre&#39;</span><span class="p">,</span> <span class="p">[</span><span class="n">validators</span><span class="o">.</span><span class="n">Length</span><span class="p">(</span><span class="nb">min</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="mi">30</span><span class="p">)])</span>
+    <span class="n">duration_in_seconds</span> <span class="o">=</span> <span class="n">StringField</span><span class="p">(</span><span class="s1">&#39;Duration(seconds)&#39;</span><span class="p">,</span> <span class="p">[</span><span class="n">validators</span><span class="o">.</span><span class="n">Length</span><span class="p">(</span><span class="nb">min</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="mi">20</span><span class="p">)])</span>
+    <span class="n">singer</span> <span class="o">=</span> <span class="n">StringField</span><span class="p">(</span><span class="s1">&#39;Singer&#39;</span><span class="p">,</span> <span class="p">[</span><span class="n">validators</span><span class="o">.</span><span class="n">Length</span><span class="p">(</span><span class="nb">min</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="mi">20</span><span class="p">)])</span>
+    <span class="n">year</span> <span class="o">=</span> <span class="n">StringField</span><span class="p">(</span><span class="s1">&#39;Year&#39;</span><span class="p">,</span> <span class="p">[</span><span class="n">validators</span><span class="o">.</span><span class="n">Length</span><span class="p">(</span><span class="nb">min</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="mi">20</span><span class="p">)])</span>
+
+<span class="k">class</span> <span class="nc">MusicUpdateForm</span><span class="p">(</span><span class="n">Form</span><span class="p">):</span>
+    <span class="nb">id</span> <span class="o">=</span> <span class="n">StringField</span><span class="p">(</span><span class="s1">&#39;Id of The Music&#39;</span><span class="p">,</span> <span class="p">[</span><span class="n">validators</span><span class="o">.</span><span class="n">Length</span><span class="p">(</span><span class="nb">min</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="mi">30</span><span class="p">)])</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="n">StringField</span><span class="p">(</span><span class="s1">&#39;Name&#39;</span><span class="p">,</span> <span class="p">[</span><span class="n">validators</span><span class="o">.</span><span class="n">Length</span><span class="p">(</span><span class="nb">min</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="mi">30</span><span class="p">)])</span>
+    <span class="n">genre</span> <span class="o">=</span> <span class="n">StringField</span><span class="p">(</span><span class="s1">&#39;Genre&#39;</span><span class="p">,</span> <span class="p">[</span><span class="n">validators</span><span class="o">.</span><span class="n">Length</span><span class="p">(</span><span class="nb">min</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="mi">30</span><span class="p">)])</span>
+    <span class="n">duration_in_seconds</span> <span class="o">=</span> <span class="n">StringField</span><span class="p">(</span><span class="s1">&#39;Duration(seconds)&#39;</span><span class="p">,</span> <span class="p">[</span><span class="n">validators</span><span class="o">.</span><span class="n">Length</span><span class="p">(</span><span class="nb">min</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="mi">20</span><span class="p">)])</span>
+    <span class="n">singer</span> <span class="o">=</span> <span class="n">StringField</span><span class="p">(</span><span class="s1">&#39;Singer&#39;</span><span class="p">,</span> <span class="p">[</span><span class="n">validators</span><span class="o">.</span><span class="n">Length</span><span class="p">(</span><span class="nb">min</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="mi">20</span><span class="p">)])</span>
+    <span class="n">year</span> <span class="o">=</span> <span class="n">StringField</span><span class="p">(</span><span class="s1">&#39;Year&#39;</span><span class="p">,</span> <span class="p">[</span><span class="n">validators</span><span class="o">.</span><span class="n">Length</span><span class="p">(</span><span class="nb">min</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="mi">20</span><span class="p">)])</span>
+
+<span class="k">class</span> <span class="nc">MusicDeleteForm</span><span class="p">(</span><span class="n">Form</span><span class="p">):</span>
+    <span class="n">music_id</span> <span class="o">=</span> <span class="n">StringField</span><span class="p">(</span><span class="s1">&#39;Id&#39;</span><span class="p">,</span> <span class="p">[</span><span class="n">validators</span><span class="o">.</span><span class="n">Length</span><span class="p">(</span><span class="nb">min</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="mi">5</span><span class="p">)])</span>
+</pre></div>
+</div>
+<p><strong>db_table_operations.py</strong>
+This file is to execute SQL queries needed for database operations.</p>
+<p>Insert a user;</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># USER AUTHENTICATION TABLE OPERATIONS #</span>
+<span class="k">def</span> <span class="nf">insert_user</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="n">query</span> <span class="o">=</span><span class="s1">&#39;INSERT INTO USERS (USERNAME, NAME, SURNAME, EMAIL, PASSWORD, AGE, GENDER) &#39;</span> \
+           <span class="s1">&#39;VALUES(</span><span class="si">%s</span><span class="s1">, </span><span class="si">%s</span><span class="s1">, </span><span class="si">%s</span><span class="s1">, </span><span class="si">%s</span><span class="s1">, </span><span class="si">%s</span><span class="s1">, </span><span class="si">%s</span><span class="s1">, </span><span class="si">%s</span><span class="s1">)&#39;</span>
+    <span class="n">url</span> <span class="o">=</span> <span class="n">get_db_url</span><span class="p">()</span>
+    <span class="k">with</span> <span class="n">dbapi2</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">url</span><span class="p">)</span> <span class="k">as</span> <span class="n">connection</span><span class="p">:</span>
+        <span class="n">cursor</span> <span class="o">=</span> <span class="n">connection</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+        <span class="c1"># hash the password</span>
+        <span class="k">print</span><span class="p">(</span><span class="s2">&quot;User pw:&quot;</span> <span class="o">+</span> <span class="nb">object</span><span class="o">.</span><span class="n">password</span><span class="p">)</span>
+        <span class="n">password_hash</span> <span class="o">=</span> <span class="n">generate_password_hash</span><span class="p">(</span><span class="nb">object</span><span class="o">.</span><span class="n">password</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="s2">&quot;User pw:&quot;</span> <span class="o">+</span> <span class="n">password_hash</span><span class="p">)</span>
+        <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">query</span><span class="p">,</span> <span class="p">(</span><span class="nb">object</span><span class="o">.</span><span class="n">username</span><span class="p">,</span> <span class="nb">object</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="nb">object</span><span class="o">.</span><span class="n">surname</span><span class="p">,</span> <span class="nb">object</span><span class="o">.</span><span class="n">email</span><span class="p">,</span>
+                               <span class="n">password_hash</span><span class="p">,</span> <span class="nb">object</span><span class="o">.</span><span class="n">age</span><span class="p">,</span> <span class="nb">object</span><span class="o">.</span><span class="n">gender</span><span class="p">))</span>
+        <span class="n">cursor</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>object is user object which has fields like username, name, password etc.
+They are executed as strings(%s). Also notice that the password is hashed for security.</p>
+<p>Find a user;
+Columns are selected with SELECT operation.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">find_user_by_username</span><span class="p">(</span><span class="n">username</span><span class="p">):</span>
+    <span class="n">query</span> <span class="o">=</span> <span class="s2">&quot;SELECT * FROM USERS WHERE USERNAME = </span><span class="si">%s</span><span class="s2">&quot;</span>
+    <span class="n">url</span> <span class="o">=</span> <span class="n">get_db_url</span><span class="p">()</span>
+    <span class="k">with</span> <span class="n">dbapi2</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">url</span><span class="p">)</span> <span class="k">as</span> <span class="n">connection</span><span class="p">:</span>
+        <span class="n">cursor</span> <span class="o">=</span> <span class="n">connection</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+        <span class="n">rows_count</span> <span class="o">=</span> <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">query</span><span class="p">,(</span><span class="n">username</span><span class="p">,))</span>
+        <span class="k">print</span><span class="p">(</span><span class="s2">&quot;User is found in DB&quot;</span><span class="p">)</span>
+        <span class="n">found_user</span> <span class="o">=</span> <span class="n">cursor</span><span class="o">.</span><span class="n">fetchone</span><span class="p">()</span>
+        <span class="n">cursor</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">found_user</span>
+
+
+<span class="k">def</span> <span class="nf">find_user_by_id</span><span class="p">(</span><span class="nb">id</span><span class="p">):</span>
+    <span class="n">query</span> <span class="o">=</span> <span class="s2">&quot;SELECT * FROM USERS WHERE ID = </span><span class="si">%s</span><span class="s2">&quot;</span>
+    <span class="n">url</span> <span class="o">=</span> <span class="n">get_db_url</span><span class="p">()</span>
+    <span class="k">with</span> <span class="n">dbapi2</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">url</span><span class="p">)</span> <span class="k">as</span> <span class="n">connection</span><span class="p">:</span>
+        <span class="n">cursor</span> <span class="o">=</span> <span class="n">connection</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+        <span class="n">rows_count</span> <span class="o">=</span> <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">query</span><span class="p">,(</span><span class="nb">id</span><span class="p">,))</span>
+        <span class="k">print</span><span class="p">(</span><span class="s2">&quot;User is found in DB&quot;</span><span class="p">)</span>
+        <span class="n">found_user</span> <span class="o">=</span> <span class="n">cursor</span><span class="o">.</span><span class="n">fetchone</span><span class="p">()</span>
+        <span class="n">cursor</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">found_user</span>
+</pre></div>
+</div>
+<p>Check password;
+Hashed passwords are checked.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">check_password</span><span class="p">(</span><span class="n">user_password_hash</span><span class="p">,</span> <span class="n">form_password</span><span class="p">):</span>
+    <span class="c1"># compare the passwords</span>
+    <span class="k">return</span> <span class="n">check_password_hash</span><span class="p">(</span><span class="n">user_password_hash</span><span class="p">,</span> <span class="n">form_password</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Add/Update/Delete elements from User Lists (i.e. mylists);</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># USER LIST OPERATIONS</span>
+<span class="k">def</span> <span class="nf">userlist_add_music</span><span class="p">(</span><span class="n">user_id</span><span class="p">,</span> <span class="n">music_id</span><span class="p">):</span>
+    <span class="n">query</span> <span class="o">=</span> <span class="s1">&#39;INSERT INTO MUSIC_LIST (USER_ID, MUSIC_ID) VALUES(</span><span class="si">%s</span><span class="s1">, </span><span class="si">%s</span><span class="s1">)&#39;</span>
+    <span class="n">url</span> <span class="o">=</span> <span class="n">get_db_url</span><span class="p">()</span>
+    <span class="k">with</span> <span class="n">dbapi2</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">url</span><span class="p">)</span> <span class="k">as</span> <span class="n">connection</span><span class="p">:</span>
+        <span class="n">cursor</span> <span class="o">=</span> <span class="n">connection</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+        <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">query</span><span class="p">,</span> <span class="p">(</span><span class="n">user_id</span><span class="p">,</span> <span class="n">music_id</span><span class="p">))</span>
+        <span class="n">cursor</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+<span class="k">def</span> <span class="nf">userlist_add_movie</span><span class="p">(</span><span class="n">user_id</span><span class="p">,</span> <span class="n">movie_id</span><span class="p">):</span>
+    <span class="n">query</span> <span class="o">=</span> <span class="s1">&#39;INSERT INTO MOVIE_LIST (USER_ID, MOVIE_ID) VALUES(</span><span class="si">%s</span><span class="s1">, </span><span class="si">%s</span><span class="s1">)&#39;</span>
+    <span class="n">url</span> <span class="o">=</span> <span class="n">get_db_url</span><span class="p">()</span>
+    <span class="k">with</span> <span class="n">dbapi2</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">url</span><span class="p">)</span> <span class="k">as</span> <span class="n">connection</span><span class="p">:</span>
+        <span class="n">cursor</span> <span class="o">=</span> <span class="n">connection</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+        <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">query</span><span class="p">,</span> <span class="p">(</span><span class="n">user_id</span><span class="p">,</span> <span class="n">movie_id</span><span class="p">))</span>
+        <span class="n">cursor</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>User’s lists, i.e, MOVIE_LIST and MUSIC_LIST keeps only the ID’s of the movie/music and user.
+So it is necessary to use JOIN operation to find out the row related with these ID’s.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">userlist_get_movies</span><span class="p">():</span>
+    <span class="n">query</span> <span class="o">=</span><span class="s1">&#39;SELECT MOVIE.* FROM MOVIE_LIST &#39;</span> \
+           <span class="s1">&#39;INNER JOIN MOVIE ON MOVIE_LIST.MOVIE_ID = MOVIE.ID &#39;</span> \
+           <span class="s1">&#39;INNER JOIN USERS ON MOVIE_LIST.USER_ID = USERS.ID&#39;</span>
+    <span class="n">url</span> <span class="o">=</span> <span class="n">get_db_url</span><span class="p">()</span>
+    <span class="k">with</span> <span class="n">dbapi2</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">url</span><span class="p">)</span> <span class="k">as</span> <span class="n">connection</span><span class="p">:</span>
+        <span class="n">cursor</span> <span class="o">=</span> <span class="n">connection</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+        <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">query</span><span class="p">)</span>
+        <span class="n">movies</span> <span class="o">=</span> <span class="n">cursor</span><span class="o">.</span><span class="n">fetchall</span><span class="p">()</span>
+        <span class="n">cursor</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">movies</span>
+
+<span class="k">def</span> <span class="nf">userlist_get_musics</span><span class="p">():</span>
+    <span class="n">query</span> <span class="o">=</span><span class="s1">&#39;SELECT MUSIC.* FROM MUSIC_LIST &#39;</span> \
+           <span class="s1">&#39;INNER JOIN MUSIC ON MUSIC_LIST.MUSIC_ID = MUSIC.ID &#39;</span> \
+           <span class="s1">&#39;INNER JOIN USERS ON MUSIC_LIST.USER_ID = USERS.ID&#39;</span>
+    <span class="n">url</span> <span class="o">=</span> <span class="n">get_db_url</span><span class="p">()</span>
+    <span class="k">with</span> <span class="n">dbapi2</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">url</span><span class="p">)</span> <span class="k">as</span> <span class="n">connection</span><span class="p">:</span>
+        <span class="n">cursor</span> <span class="o">=</span> <span class="n">connection</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+        <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">query</span><span class="p">)</span>
+        <span class="n">musics</span> <span class="o">=</span> <span class="n">cursor</span><span class="o">.</span><span class="n">fetchall</span><span class="p">()</span>
+        <span class="n">cursor</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">musics</span>
+</pre></div>
+</div>
+<p>Delete operation finds the element with provided ID and deletes it from the related table.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">userlist_delete_movie</span><span class="p">(</span><span class="n">user_id</span><span class="p">,</span> <span class="n">movie_id</span><span class="p">):</span>
+    <span class="n">query</span> <span class="o">=</span> <span class="s2">&quot;DELETE FROM MOVIE_LIST WHERE USER_ID = CAST(</span><span class="si">%s</span><span class="s2"> AS INTEGER) AND MOVIE_ID = CAST(</span><span class="si">%s</span><span class="s2"> AS INTEGER)&quot;</span>
+    <span class="n">url</span> <span class="o">=</span> <span class="n">get_db_url</span><span class="p">()</span>
+    <span class="k">with</span> <span class="n">dbapi2</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">url</span><span class="p">)</span> <span class="k">as</span> <span class="n">connection</span><span class="p">:</span>
+        <span class="n">cursor</span> <span class="o">=</span> <span class="n">connection</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+        <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">query</span><span class="p">,</span> <span class="p">(</span><span class="n">user_id</span><span class="p">,</span> <span class="n">movie_id</span><span class="p">))</span>
+        <span class="n">cursor</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+        <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Movie with id &quot;</span> <span class="o">+</span> <span class="n">movie_id</span> <span class="o">+</span> <span class="s2">&quot; from user with id &quot;</span> <span class="o">+</span> <span class="n">user_id</span> <span class="o">+</span> <span class="s2">&quot; deleted&quot;</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">userlist_delete_music</span><span class="p">(</span><span class="n">user_id</span><span class="p">,</span> <span class="n">music_id</span><span class="p">):</span>
+    <span class="n">query</span> <span class="o">=</span> <span class="s2">&quot;DELETE FROM MUSIC_LIST WHERE USER_ID = CAST(</span><span class="si">%s</span><span class="s2"> AS INTEGER) AND MUSIC_ID = CAST(</span><span class="si">%s</span><span class="s2"> AS INTEGER)&quot;</span>
+    <span class="n">url</span> <span class="o">=</span> <span class="n">get_db_url</span><span class="p">()</span>
+    <span class="k">with</span> <span class="n">dbapi2</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">url</span><span class="p">)</span> <span class="k">as</span> <span class="n">connection</span><span class="p">:</span>
+        <span class="n">cursor</span> <span class="o">=</span> <span class="n">connection</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+        <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">query</span><span class="p">,</span> <span class="p">(</span><span class="n">user_id</span><span class="p">,</span> <span class="n">music_id</span><span class="p">))</span>
+        <span class="n">cursor</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+        <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Music with id &quot;</span> <span class="o">+</span> <span class="n">music_id</span> <span class="o">+</span> <span class="s2">&quot; from user with id &quot;</span> <span class="o">+</span> <span class="n">user_id</span> <span class="o">+</span> <span class="s2">&quot; deleted&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Rest of the MOVIE table operations are similar to the former operations.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># MOVIE TABLE OPERATIONS #</span>
+<span class="k">def</span> <span class="nf">get_movies</span><span class="p">():</span>
+    <span class="n">query</span> <span class="o">=</span><span class="s1">&#39;SELECT * FROM MOVIE&#39;</span>
+    <span class="n">url</span> <span class="o">=</span> <span class="n">get_db_url</span><span class="p">()</span>
+    <span class="k">with</span> <span class="n">dbapi2</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">url</span><span class="p">)</span> <span class="k">as</span> <span class="n">connection</span><span class="p">:</span>
+        <span class="n">cursor</span> <span class="o">=</span> <span class="n">connection</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+        <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">query</span><span class="p">)</span>
+        <span class="n">movies</span> <span class="o">=</span> <span class="n">cursor</span><span class="o">.</span><span class="n">fetchall</span><span class="p">()</span>
+        <span class="n">cursor</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">movies</span>
+
+<span class="k">def</span> <span class="nf">insert_movie</span><span class="p">(</span><span class="n">movie</span><span class="p">):</span>
+    <span class="n">query</span> <span class="o">=</span><span class="s1">&#39;INSERT INTO MOVIE(TITLE, YEAR, DURATION_IN_MINUTES, DIRECTOR, GENRE) VALUES(</span><span class="si">%s</span><span class="s1">, </span><span class="si">%s</span><span class="s1">, </span><span class="si">%s</span><span class="s1">, </span><span class="si">%s</span><span class="s1">, </span><span class="si">%s</span><span class="s1">)&#39;</span>
+    <span class="n">url</span> <span class="o">=</span> <span class="n">get_db_url</span><span class="p">()</span>
+    <span class="k">with</span> <span class="n">dbapi2</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">url</span><span class="p">)</span> <span class="k">as</span> <span class="n">connection</span><span class="p">:</span>
+        <span class="n">cursor</span> <span class="o">=</span> <span class="n">connection</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+        <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">query</span><span class="p">,</span> <span class="p">(</span><span class="n">movie</span><span class="o">.</span><span class="n">title</span><span class="p">,</span> <span class="n">movie</span><span class="o">.</span><span class="n">year</span><span class="p">,</span> <span class="n">movie</span><span class="o">.</span><span class="n">duration_in_minutes</span><span class="p">,</span> <span class="n">movie</span><span class="o">.</span><span class="n">director</span><span class="p">,</span> <span class="n">movie</span><span class="o">.</span><span class="n">genre</span><span class="p">))</span>
+        <span class="n">cursor</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+<span class="k">def</span> <span class="nf">update_movie</span><span class="p">(</span><span class="n">movie_id</span><span class="p">,</span> <span class="n">movie</span><span class="p">):</span>
+    <span class="n">query</span> <span class="o">=</span> <span class="s2">&quot;UPDATE MOVIE &quot;</span> \
+            <span class="s2">&quot;SET TITLE = </span><span class="si">%s</span><span class="s2">, &quot;</span> \
+            <span class="s2">&quot;YEAR = </span><span class="si">%s</span><span class="s2">, &quot;</span> \
+            <span class="s2">&quot;DURATION_IN_MINUTES = </span><span class="si">%s</span><span class="s2">, &quot;</span> \
+            <span class="s2">&quot;DIRECTOR = </span><span class="si">%s</span><span class="s2">, &quot;</span> \
+            <span class="s2">&quot;GENRE = </span><span class="si">%s</span><span class="s2"> &quot;</span> \
+            <span class="s2">&quot;WHERE ID = </span><span class="si">%s</span><span class="s2"> &quot;</span>
+    <span class="n">url</span> <span class="o">=</span> <span class="n">get_db_url</span><span class="p">()</span>
+    <span class="k">with</span> <span class="n">dbapi2</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">url</span><span class="p">)</span> <span class="k">as</span> <span class="n">connection</span><span class="p">:</span>
+        <span class="n">cursor</span> <span class="o">=</span> <span class="n">connection</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+        <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">query</span><span class="p">,</span> <span class="p">(</span><span class="n">movie</span><span class="o">.</span><span class="n">title</span><span class="p">,</span> <span class="n">movie</span><span class="o">.</span><span class="n">year</span><span class="p">,</span> <span class="n">movie</span><span class="o">.</span><span class="n">duration_in_minutes</span><span class="p">,</span>
+                              <span class="n">movie</span><span class="o">.</span><span class="n">director</span><span class="p">,</span> <span class="n">movie</span><span class="o">.</span><span class="n">genre</span><span class="p">,</span> <span class="n">movie_id</span><span class="p">,))</span>
+        <span class="c1"># id = cursor.fetchone()[0]  # get the inserted row&#39;s id</span>
+        <span class="n">cursor</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+        <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Movie with id &quot;</span> <span class="o">+</span> <span class="n">movie_id</span> <span class="o">+</span> <span class="s2">&quot; deleted&quot;</span><span class="p">)</span>
+        <span class="c1"># return id</span>
+</pre></div>
+</div>
+<p>Operations in MUSICS table are pretty the same. Though, they are provided to provide details for SQL operations.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># MUSIC TABLE OPERATIONS #</span>
+<span class="k">def</span> <span class="nf">get_musics</span><span class="p">():</span>
+    <span class="n">query</span> <span class="o">=</span><span class="s1">&#39;SELECT * FROM MUSIC&#39;</span>
+    <span class="n">url</span> <span class="o">=</span> <span class="n">get_db_url</span><span class="p">()</span>
+    <span class="k">with</span> <span class="n">dbapi2</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">url</span><span class="p">)</span> <span class="k">as</span> <span class="n">connection</span><span class="p">:</span>
+        <span class="n">cursor</span> <span class="o">=</span> <span class="n">connection</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+        <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">query</span><span class="p">)</span>
+        <span class="n">movies</span> <span class="o">=</span> <span class="n">cursor</span><span class="o">.</span><span class="n">fetchall</span><span class="p">()</span>
+        <span class="n">cursor</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">movies</span>
+
+
+<span class="k">def</span> <span class="nf">insert_music</span><span class="p">(</span><span class="n">music</span><span class="p">):</span>
+    <span class="n">query</span> <span class="o">=</span><span class="s1">&#39;INSERT INTO MUSIC (NAME, GENRE, DURATION_IN_SECONDS, SINGER, YEAR) VALUES(</span><span class="si">%s</span><span class="s1">, </span><span class="si">%s</span><span class="s1">, </span><span class="si">%s</span><span class="s1">, </span><span class="si">%s</span><span class="s1">, </span><span class="si">%s</span><span class="s1">)&#39;</span>
+    <span class="n">url</span> <span class="o">=</span> <span class="n">get_db_url</span><span class="p">()</span>
+    <span class="k">with</span> <span class="n">dbapi2</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">url</span><span class="p">)</span> <span class="k">as</span> <span class="n">connection</span><span class="p">:</span>
+        <span class="n">cursor</span> <span class="o">=</span> <span class="n">connection</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+        <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">query</span><span class="p">,</span> <span class="p">(</span><span class="n">music</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">music</span><span class="o">.</span><span class="n">genre</span><span class="p">,</span> <span class="n">music</span><span class="o">.</span><span class="n">duration_in_seconds</span><span class="p">,</span>
+                               <span class="n">music</span><span class="o">.</span><span class="n">singer</span><span class="p">,</span> <span class="n">music</span><span class="o">.</span><span class="n">year</span><span class="p">))</span>
+        <span class="n">cursor</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+
+<span class="k">def</span> <span class="nf">update_music</span><span class="p">(</span><span class="n">music_id</span><span class="p">,</span> <span class="n">music</span><span class="p">):</span>
+    <span class="n">query</span> <span class="o">=</span> <span class="s2">&quot;UPDATE MUSIC &quot;</span> \
+            <span class="s2">&quot;SET NAME = </span><span class="si">%s</span><span class="s2">, &quot;</span> \
+            <span class="s2">&quot;GENRE = </span><span class="si">%s</span><span class="s2">, &quot;</span> \
+            <span class="s2">&quot;DURATION_IN_SECONDS = </span><span class="si">%s</span><span class="s2">, &quot;</span> \
+            <span class="s2">&quot;SINGER = </span><span class="si">%s</span><span class="s2">, &quot;</span> \
+            <span class="s2">&quot;YEAR = </span><span class="si">%s</span><span class="s2"> &quot;</span> \
+            <span class="s2">&quot;WHERE ID = </span><span class="si">%s</span><span class="s2"> &quot;</span>
+    <span class="n">url</span> <span class="o">=</span> <span class="n">get_db_url</span><span class="p">()</span>
+    <span class="k">with</span> <span class="n">dbapi2</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">url</span><span class="p">)</span> <span class="k">as</span> <span class="n">connection</span><span class="p">:</span>
+        <span class="n">cursor</span> <span class="o">=</span> <span class="n">connection</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+        <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">query</span><span class="p">,</span> <span class="p">(</span><span class="n">music</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">music</span><span class="o">.</span><span class="n">genre</span><span class="p">,</span> <span class="n">music</span><span class="o">.</span><span class="n">duration_in_seconds</span><span class="p">,</span>
+                               <span class="n">music</span><span class="o">.</span><span class="n">singer</span><span class="p">,</span> <span class="n">music</span><span class="o">.</span><span class="n">year</span><span class="p">,</span> <span class="n">music_id</span><span class="p">,))</span>
+        <span class="n">cursor</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+        <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Music with id &quot;</span> <span class="o">+</span> <span class="n">music_id</span> <span class="o">+</span> <span class="s2">&quot; deleted&quot;</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">delete_music</span><span class="p">(</span><span class="n">music_id</span><span class="p">):</span>
+    <span class="n">query</span> <span class="o">=</span> <span class="s2">&quot;DELETE FROM MUSIC WHERE ID = CAST(</span><span class="si">%s</span><span class="s2"> AS INTEGER)&quot;</span>
+    <span class="n">url</span> <span class="o">=</span> <span class="n">get_db_url</span><span class="p">()</span>
+    <span class="k">with</span> <span class="n">dbapi2</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">url</span><span class="p">)</span> <span class="k">as</span> <span class="n">connection</span><span class="p">:</span>
+        <span class="n">cursor</span> <span class="o">=</span> <span class="n">connection</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+        <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">query</span><span class="p">,</span> <span class="p">(</span><span class="n">music_id</span><span class="p">,))</span>
+        <span class="n">cursor</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+        <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Music with id &quot;</span> <span class="o">+</span> <span class="n">music_id</span> <span class="o">+</span> <span class="s2">&quot; deleted&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Lastly, config.py has the secret key for security.</p>
+</div>
+<div class="section" id="html-css">
+<h2>HTML/CSS<a class="headerlink" href="#html-css" title="Permalink to this headline">¶</a></h2>
+<p>There are a differentiated HTML code for each page. Though, they all share the common one,
+layout.html. Let’s start with it.</p>
+<p>Let’s start with CSS part of the layout.html.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">..</span> <span class="n">code</span><span class="o">-</span><span class="n">block</span><span class="p">::</span> <span class="n">python</span>
+
+        <span class="o">&lt;</span><span class="n">style</span><span class="o">&gt;</span>
+     <span class="n">html</span><span class="p">,</span> <span class="n">body</span><span class="p">,</span> <span class="n">h1</span><span class="p">,</span> <span class="n">h2</span><span class="p">,</span> <span class="n">h3</span><span class="p">,</span> <span class="n">h4</span><span class="p">,</span> <span class="n">h5</span><span class="p">,</span> <span class="n">h6</span> <span class="p">{</span>
+     <span class="n">font</span><span class="o">-</span><span class="n">family</span><span class="p">:</span> <span class="s1">&#39;Hammersmith One&#39;</span><span class="p">,</span> <span class="n">serif</span><span class="p">;</span>
+     <span class="p">}</span>
+</pre></div>
+</div>
+<p>The code part above, font is determined. Then the rest of the code layouts the general style.</p>
+<blockquote>
+<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span>    <span class="o">*</span> <span class="p">{</span>
+  <span class="n">box</span><span class="o">-</span><span class="n">sizing</span><span class="p">:</span> <span class="n">border</span><span class="o">-</span><span class="n">box</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="o">/*</span> <span class="n">Create</span> <span class="n">two</span> <span class="n">equal</span> <span class="n">columns</span> <span class="n">that</span> <span class="n">floats</span> <span class="nb">next</span> <span class="n">to</span> <span class="n">each</span> <span class="n">other</span> <span class="o">*/</span>
+<span class="o">.</span><span class="n">column</span> <span class="p">{</span>
+  <span class="nb">float</span><span class="p">:</span> <span class="n">left</span><span class="p">;</span>
+  <span class="n">padding</span><span class="p">:</span> <span class="mi">10</span><span class="n">px</span><span class="p">;</span>
+  <span class="n">padding</span><span class="o">-</span><span class="n">right</span><span class="p">:</span> <span class="mi">15</span><span class="n">px</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="o">.</span><span class="n">left</span> <span class="p">{</span>
+  <span class="n">width</span><span class="p">:</span> <span class="mi">85</span><span class="o">%</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="o">.</span><span class="n">right</span> <span class="p">{</span>
+  <span class="n">width</span><span class="p">:</span> <span class="mi">15</span><span class="o">%</span>
+<span class="p">}</span>
+
+<span class="p">{</span><span class="c1"># responsive to screen size #}</span>
+<span class="nd">@media</span> <span class="n">screen</span> <span class="ow">and</span> <span class="p">(</span><span class="nb">max</span><span class="o">-</span><span class="n">width</span><span class="p">:</span> <span class="mi">600</span><span class="n">px</span><span class="p">)</span> <span class="p">{</span>
+  <span class="o">.</span><span class="n">column</span> <span class="p">{</span>
+    <span class="n">width</span><span class="p">:</span> <span class="mi">100</span><span class="o">%</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="o">/*</span> <span class="n">Clear</span> <span class="n">floats</span> <span class="n">after</span> <span class="n">the</span> <span class="n">columns</span> <span class="o">*/</span>
+<span class="o">.</span><span class="n">row</span><span class="p">:</span><span class="n">after</span> <span class="p">{</span>
+  <span class="n">content</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">;</span>
+  <span class="n">display</span><span class="p">:</span> <span class="n">table</span><span class="p">;</span>
+  <span class="n">clear</span><span class="p">:</span> <span class="n">both</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="o">&lt;/</span><span class="n">style</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>Below you can see the jquery and Bootstrap scripts initializations.</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+<p>Now we create “title” block which will be different for each page.</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>{% block title %}{% endblock %}<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+<p>After, we create our menu. It is designed as two lines. The first one consists of
+couple links for necessary redirections. Because it’s same for all the pages, it is not
+labeled as block, as in the second menu bar. Second menu bar includes links to the community lists.
+It also has a welcome message with included username. Because it’s only necessary for mylists page
+it is labeled as secondmenubar.</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;w3-bar w3-text-yellow w3-large&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">h5</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;/mylists&quot;</span><span class="p">&gt;&lt;</span><span class="nt">button</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;w3-bar-item w3-button w3-right&quot;</span><span class="p">&gt;&lt;</span><span class="nt">b</span><span class="p">&gt;</span>Your Lists<span class="p">&lt;/</span><span class="nt">b</span><span class="p">&gt;&lt;/</span><span class="nt">button</span><span class="p">&gt;&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;/signup&quot;</span><span class="p">&gt;&lt;</span><span class="nt">button</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;w3-bar-item w3-button w3-right&quot;</span><span class="p">&gt;&lt;</span><span class="nt">b</span><span class="p">&gt;</span>Sign up<span class="p">&lt;/</span><span class="nt">b</span><span class="p">&gt;&lt;/</span><span class="nt">button</span><span class="p">&gt;&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;/signin&quot;</span><span class="p">&gt;&lt;</span><span class="nt">button</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;w3-bar-item w3-button w3-right&quot;</span><span class="p">&gt;&lt;</span><span class="nt">b</span><span class="p">&gt;</span>Sign in<span class="p">&lt;/</span><span class="nt">b</span><span class="p">&gt;&lt;/</span><span class="nt">button</span><span class="p">&gt;&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;/&quot;</span><span class="p">&gt;&lt;</span><span class="nt">button</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;w3-bar-item w3-button w3-left&quot;</span><span class="p">&gt;&lt;</span><span class="nt">b</span><span class="p">&gt;</span>Intellect<span class="p">&lt;/</span><span class="nt">b</span><span class="p">&gt;&lt;/</span><span class="nt">button</span><span class="p">&gt;&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">h5</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+
+{% block secondmenubar %}
+<span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;w3-bar w3-text-brown w3-large w3-border-top w3-border-bottom&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">h5</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;/mylists&quot;</span><span class="p">&gt;&lt;</span><span class="nt">button</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;w3-bar-item w3-button w3-left&quot;</span><span class="p">&gt;&lt;</span><span class="nt">b</span><span class="p">&gt;</span>My Lists<span class="p">&lt;/</span><span class="nt">b</span><span class="p">&gt;&lt;/</span><span class="nt">button</span><span class="p">&gt;&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;/mylists/movies&quot;</span><span class="p">&gt;&lt;</span><span class="nt">button</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;w3-bar-item w3-button w3-left&quot;</span><span class="p">&gt;&lt;</span><span class="nt">b</span><span class="p">&gt;</span>Community Movies<span class="p">&lt;/</span><span class="nt">b</span><span class="p">&gt;&lt;/</span><span class="nt">button</span><span class="p">&gt;&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;/mylists/musics&quot;</span><span class="p">&gt;&lt;</span><span class="nt">button</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;w3-bar-item w3-button w3-left&quot;</span><span class="p">&gt;&lt;</span><span class="nt">b</span><span class="p">&gt;</span>Community Musics<span class="p">&lt;/</span><span class="nt">b</span><span class="p">&gt;&lt;/</span><span class="nt">button</span><span class="p">&gt;&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">button</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;w3-bar-item w3-button w3-right&quot;</span><span class="p">&gt;&lt;</span><span class="nt">b</span><span class="p">&gt;</span>Welcome {{ current_user[2] }}!<span class="p">&lt;/</span><span class="nt">b</span><span class="p">&gt;&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">h5</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+{% endblock %}
+</pre></div>
+</div>
+<p>Then create a block for body. It’s empty for the homepage.</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+    {% block content %}{%  endblock %}
+<span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+<p>Create the footer;</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span>{   % block footer %}
+<span class="p">&lt;</span><span class="nt">footer</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;w3-bottom w3-container w3-text-gray&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>Developed by Hakan Eroztekin<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">footer</span><span class="p">&gt;</span>
+{% endblock %}
+</pre></div>
+</div>
+<p>Block for additional styles;</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span>{% block additional_styles %}
+<span class="p">&lt;</span><span class="nt">style</span><span class="p">&gt;</span>
+   <span class="nt">body</span> <span class="p">{</span>
+    <span class="k">padding-left</span><span class="p">:</span> <span class="mi">10</span><span class="kt">px</span><span class="p">;</span>
+   <span class="p">}</span>
+<span class="p">&lt;/</span><span class="nt">style</span><span class="p">&gt;</span>
+{% endblock %}
+</pre></div>
+</div>
+<p>That’s it for layout.html. All the other pages are derived from this page. While it is common, they differ in contents in the blocks.
+There are 12 more html pages.</p>
+<ul class="simple">
+<li><p><strong>User Authentication:</strong> signup.html, signin.html</p></li>
+<li><p><strong>Homepage:</strong> homepage.html</p></li>
+<li><p><strong>User Lists:</strong> mylists.html</p></li>
+<li><p><strong>Community Lists for Movies:</strong> movies.html, add_movies.html, update_movies.html, delete_movies.html</p></li>
+<li><p><strong>Community Lists for Musics:</strong> musics.html, add_musics.html, update_musics.html, delete_musics.html</p></li>
+</ul>
+<p>Almost all the pages are created to work with forms. The forms has fields according to the related database tables.</p>
+<p><strong>User Authentication</strong> <em>signup.html</em>
+The technical part of the page can be seen below:</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span>{% block content %}
+        <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>Sign-up to Intellect<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">form</span> <span class="na">method</span><span class="o">=</span><span class="s">post</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">dl</span><span class="p">&gt;</span>
+    {{ render_field(form.username) }}
+    {{ render_field(form.email) }}
+    {{ render_field(form.name) }}
+    {{ render_field(form.surname) }}
+    {{ render_field(form.age) }}
+    {{ render_field(form.gender) }}
+    {{ render_field(form.password) }}
+    {{ render_field(form.confirm) }}
+  <span class="p">&lt;/</span><span class="nt">dl</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">submit</span> <span class="na">value</span><span class="o">=</span><span class="s">Register</span><span class="p">&gt;</span>
+
+{% endblock %}
+</pre></div>
+</div>
+<p>Each form element is rendered in the html.</p>
+<p><strong>User Authentication</strong> <em>signin.html</em>
+In sign-in,  username and password is asked. Also, there is an option to “Remember” the user later on.</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span>{% block title %} Sign-in for Intellect {% endblock %}
+{% block content %}
+    <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>Log In To Intellect<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">form</span> <span class="na">action</span><span class="o">=</span><span class="s">&quot;&quot;</span> <span class="na">method</span><span class="o">=</span><span class="s">&quot;post&quot;</span> <span class="na">novalidate</span><span class="p">&gt;</span>
+        {{ form.hidden_tag() }}
+        <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>
+            {{ form.username.label }}<span class="p">&lt;</span><span class="nt">br</span><span class="p">&gt;</span>
+            {{ form.username(size=32) }}
+        <span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>
+            {{ form.password.label }}<span class="p">&lt;</span><span class="nt">br</span><span class="p">&gt;</span>
+            {{ form.password(size=32) }}
+        <span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>{{ form.remember_me() }} {{ form.remember_me.label }}<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>{{ form.submit() }}<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">form</span><span class="p">&gt;</span>
+    {% if error %}
+        <span class="p">&lt;</span><span class="nt">p</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;error&quot;</span><span class="p">&gt;</span>ERROR: {{ error }}<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+    {% endif %}
+
+{% endblock %}
+</pre></div>
+</div>
+<p><strong>Homepage</strong> <em>homepage.html</em>
+Homepage has a difference in the additional styles here. A specific background image is implemented.</p>
+<div class="highlight-css notranslate"><div class="highlight"><pre><span></span>{% block additional_styles %}
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt;
+    &lt;style&gt;
+       body {
+            background-image: url(&#39;/static/image/bg.jpg&#39;);
+            height: 100%;
+            background-repeat: no-repeat;
+            background-size: cover;
+            position: relative;
+       }
+    &lt;/style&gt;
+
+{% endblock %}
+</pre></div>
+</div>
+<p>At this point, the remaining pages are the following,
+- <strong>User Lists:</strong> mylists.html
+- <strong>Community Lists for Movies:</strong> movies.html, add_movies.html, update_movies.html, delete_movies.html
+- <strong>Community Lists for Musics:</strong> musics.html, add_musics.html, update_musics.html, delete_musics.html</p>
+<p>Because the operation is very similar, to keep the documentation neat, only the technical parts will be
+discussed.</p>
+<p><strong>User Lists:</strong> mylists.html
+MyLists is the page shows user’s own lists. It creates table and fills it with user_movies list.
+user_movies is provided to html in server.py.</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span>{% if user_movies %}
+     <span class="p">&lt;</span><span class="nt">table</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;w3-table-all&quot;</span><span class="p">&gt;</span>
+       <span class="p">&lt;</span><span class="nt">thead</span><span class="p">&gt;</span>
+         <span class="p">&lt;</span><span class="nt">tr</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;w3-orange&quot;</span><span class="p">&gt;</span>
+           <span class="p">&lt;</span><span class="nt">th</span><span class="p">&gt;</span>#<span class="p">&lt;/</span><span class="nt">th</span><span class="p">&gt;</span>
+           <span class="p">&lt;</span><span class="nt">th</span><span class="p">&gt;</span>Title<span class="p">&lt;/</span><span class="nt">th</span><span class="p">&gt;</span>
+           <span class="p">&lt;</span><span class="nt">th</span><span class="p">&gt;</span>Year<span class="p">&lt;/</span><span class="nt">th</span><span class="p">&gt;</span>
+           <span class="p">&lt;</span><span class="nt">th</span><span class="p">&gt;</span>Duration<span class="p">&lt;/</span><span class="nt">th</span><span class="p">&gt;</span>
+           <span class="p">&lt;</span><span class="nt">th</span><span class="p">&gt;</span>Director<span class="p">&lt;/</span><span class="nt">th</span><span class="p">&gt;</span>
+           <span class="p">&lt;</span><span class="nt">th</span><span class="p">&gt;</span>Genre<span class="p">&lt;/</span><span class="nt">th</span><span class="p">&gt;</span>
+           <span class="p">&lt;</span><span class="nt">th</span><span class="p">&gt;&lt;/</span><span class="nt">th</span><span class="p">&gt;</span>
+         <span class="p">&lt;/</span><span class="nt">tr</span><span class="p">&gt;</span>
+       <span class="p">&lt;/</span><span class="nt">thead</span><span class="p">&gt;</span>
+          {% for movie in user_movies %}
+       <span class="p">&lt;</span><span class="nt">tr</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;w3-text-black&quot;</span><span class="p">&gt;</span>
+         <span class="p">&lt;</span><span class="nt">td</span><span class="p">&gt;</span>{{ movie[0] }}<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+         <span class="p">&lt;</span><span class="nt">td</span><span class="p">&gt;</span>{{ movie[1] }}<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+         <span class="p">&lt;</span><span class="nt">td</span><span class="p">&gt;</span>{{ movie[2] }}<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+         <span class="p">&lt;</span><span class="nt">td</span><span class="p">&gt;</span>{{ movie[3] }}<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+         <span class="p">&lt;</span><span class="nt">td</span><span class="p">&gt;</span>{{ movie[4] }}<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+         <span class="p">&lt;</span><span class="nt">td</span><span class="p">&gt;</span>{{ movie[5] }}<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+
+           <span class="p">&lt;</span><span class="nt">form</span> <span class="na">method</span><span class="o">=</span><span class="s">post</span><span class="p">&gt;</span>
+
+                {# get movie id#}
+
+               <span class="p">&lt;</span><span class="nt">td</span><span class="p">&gt;</span>
+                   <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;hidden&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;movie_id&quot;</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;{{ movie[0] }}&quot;</span><span class="p">&gt;</span>
+                   <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;hidden&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;user_id&quot;</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;{{ current_user[0] }}&quot;</span><span class="p">&gt;</span>
+                   <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;hidden&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;music_id&quot;</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;0&quot;</span><span class="p">&gt;</span>
+                   <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">submit</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;Delete&quot;</span><span class="p">&gt;</span>
+               <span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+           <span class="p">&lt;/</span><span class="nt">form</span><span class="p">&gt;</span>
+
+       <span class="p">&lt;/</span><span class="nt">tr</span><span class="p">&gt;</span>
+     {% endfor %}
+     <span class="p">&lt;/</span><span class="nt">table</span><span class="p">&gt;</span>
+   <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+       {% endif %}
+</pre></div>
+</div>
+<p>The very same operation is realized for movies.html and musics.html.</p>
+<ul class="simple">
+<li><p><strong>Community Lists for Movies &amp; Musics :</strong></p></li>
+</ul>
+<p>Adding, updating and deleting movies and music operations are pretty similar.
+They process the form fields as text boxes, and with the click of the button,
+the information is transfered to the related variable and it’s processed in the database.</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">form</span> <span class="na">method</span><span class="o">=</span><span class="s">post</span><span class="p">&gt;</span>
+     <span class="p">&lt;</span><span class="nt">dl</span><span class="p">&gt;</span>
+       {{ render_field(form.title) }}
+       {{ render_field(form.year) }}
+       {{ render_field(form.duration_in_minutes) }}
+       {{ render_field(form.director) }}
+       {{ render_field(form.genre) }}
+     <span class="p">&lt;/</span><span class="nt">dl</span><span class="p">&gt;</span>
+     <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">submit</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;Add Movie&quot;</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="member1.html">Parts Implemented by Member Name</a></li>
+</ul>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="member1.html" class="btn btn-neutral float-right" title="Parts Implemented by Member Name" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../user/index.html" class="btn btn-neutral float-left" title="User Guide" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, ITUCSDB1809
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
